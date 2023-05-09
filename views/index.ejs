@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
+    <style>
+        .background-radial-gradient {
+            background-color: hsl(218, 41%, 15%);
+            background-image: radial-gradient(650px circle at 0% 0%,
+                hsl(218, 41%, 35%) 15%,
+                hsl(218, 41%, 30%) 35%,
+                hsl(218, 41%, 20%) 75%,
+                hsl(218, 41%, 19%) 80%,
+                transparent 100%),
+            radial-gradient(1250px circle at 100% 100%,
+                hsl(218, 41%, 45%) 15%,
+                hsl(218, 41%, 30%) 35%,
+                hsl(218, 41%, 20%) 75%,
+                hsl(218, 41%, 19%) 80%,
+                transparent 100%);
+        }
+
+        #radius-shape-1 {
+            height: 220px;
+            width: 220px;
+            top: -60px;
+            left: -130px;
+            background: radial-gradient(#44006b, #ad1fff);
+            overflow: hidden;
+        }
+
+        #radius-shape-2 {
+            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+            bottom: -60px;
+            right: -110px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(#44006b, #ad1fff);
+            overflow: hidden;
+        }
+
+        .bg-glass {
+            background-color: hsla(0, 0%, 100%, 0.9) !important;
+            backdrop-filter: saturate(200%) blur(25px);
+            overflow: hidden;
+        }
+
+        /* Navbar Design */
+        #mainNavigation a {
+            font-family: 'Cabin', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4)
+        }
+
+        .dropdown-menu {
+            background: #03727d
+        }
+
+        a.dropdown-toggle {
+            color: #dfdfdf !important
+        }
+
+        a.dropdown-item:hover {
+            color: #03727d !important
+        }
+
+        .nav-item a {
+            color: #dfdfdf;
+        }
+
+        .nav-item a:hover {
+            color: #fff
+        }
+
+        .nav-item {
+            min-width: 12vw;
+        }
+
+        #mainNavigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 123;
+            padding-bottom: 120px;
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+            /* IE6-9 */
+        }
+
+        #navbarNavDropdown.collapsing .navbar-nav,
+        #navbarNavDropdown.show .navbar-nav {
+            background: #037582;
+            padding: 12px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- START Navbar -->
+    <div id="mainNavigation">
+        <div class="navbar-expand-md">
+            <div class="navbar-dark text-center my-2">
+                <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+                </button>
+            </div>
+            <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Landing Page</a>
+                    </li>
+
+                    <!-- IF ELSE START -->
+                    <%if(status=="loggedin" ){%>
+
+                    <!-- START When a user is logged in  -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <!-- END When a user is logged in  -->
+
+                    <!-- ELSE CONDITION -->
+                    <%}else { %>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+
+                    <!-- IF ELSE END -->
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Section: Design Block -->
+    <section class="background-radial-gradient overflow-hidden">      
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                
+                <%if(status=="no" ){%>
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                        LeenTech <br />
+                        <span style="color: hsl(218, 81%, 75%)">we find ways.</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                        Through LeenTech's solutions, we will bring the most out of you. Join our
+                        LeenTech's team now and experience exclusive digital offers. Only here, at LeenTech.
+                    </p>
+                </div>
+                <%}%>
+                
+                    <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                        <div class="card bg-glass mt-5 mb-5 mr-auto">
+                            <div class="container my-5" style="padding: 5%;">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 8%;">
+                                    
+                                        <!-- IF ELSE START -->
+                                        <%if(status=="loggedin" ){%>
+                                            
+                                        <h5 class="card-title">Welcome, <%= user.firstname + ' ' + user.lastname%>!</h5>
+                                        <form onsubmit="return false;" id="form">
+                                        <!-- ELSE CONDITION -->
+                                        <%}else { %>
+                                    
+                                        <h5 style="margin-bottom: 10%;" class="card-title">Welcome to the Landing Page</h5>
+                                        <!-- IF ELSE CONDITION -->
+                                        <h6 class="card-subtitle mb-2 text-muted">This is the Landing Page of
+                                            LeenTech</h6>
+                                        <%}%>
+                                                    
+                                        <!-- IF ELSE CONDITION -->
+                                        <%if(status=="loggedin" ){%>
+                                            <br>
+                                            <center><h4>User Info Page</h4></center><br>
+
+                                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        <input type="text" class="form-control" minlength="2" id="lastName" name="lastName" placeholder="Last Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        <input type="text" class="form-control" minlength="2" id="firstName" name="firstName" placeholder="First Name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Middle Name input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="text" class="form-control" minlength="2" id="middleName" name="middleName" size="65" placeholder="Middle Name" required>
+                                            </div> 
+
+                                            <!-- Home Address input -->
+                                            <div class="form-outline mb-4">
+                                                <textarea class="form-control" id="homeAddress" name="homeAddress" size="65" placeholder="Home Address"
+                                                title="House No., St. Name, Brgy, Postal Code" required></textarea>                                            
+                                            </div> 
+
+                                            <!-- Country Input -->
+                                            <div class="form-outline">
+                                                <label for="country" class="form-label">Country</label>
+                                            </div>
+                                            <center>
+                                                <div class="form-outline mb-3">
+                                                    <select id="country" name="country" class="countries btn btn-secondary dropdown-toggle form-select" style="background-color: #44006b;">
+                                                        <option selected disabled value="">Select Country</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Please select a valid Country.
+                                                    </div>
+                                                </div>
+                                            </center>
+
+                                            <!-- Region input -->
+                                            <div class="form-outline">
+                                                <label for="stateId" class="form-label">Region</label>
+                                            </div>
+                                            <div class="form-outline mb-3">
+                                                <select id="stateId" name="state" class="btn btn-secondary dropdown-toggle form-select" style="background-color: #44006b;width: 100%;">
+                                                    <option selected disabled value="">Select Region</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select a valid Region.
+                                                </div>
+                                            </div>
+                                                    
+                                            <div class="row">
+                                                <!-- City Input -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <div class="form-outline">
+                                                                    <label for="city" class="form-label">City</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md">
+                                                                <div class="form-outline">
+                                                                    <select id="city" name="city" class="cities btn btn-secondary dropdown-toggle form-select" style="background-color: #44006b;width: 100%;">
+                                                                        <option selected disabled value="">Select City</option>
+                                                                    </select>
+                                                                    <div class="invalid-feedback">
+                                                                        Please select a valid City.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Zip Code Input -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        <input type="text" class="form-control" id="zipCode" name="zipCode" minlength="4" maxlength="4" pattern="^[0-9]*$" placeholder="Zip Code" title="Should contain only 4-digit characters." required>
+                                                    </div>
+                                                </div>
+                                            </div>                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card bg-glass mt-5 mb-5">
+                        <div class="container my-5" style="padding: 6%;">
+                            <div class="card">
+                                <div class="card-body" style="padding: 6%;">                            
+                                    <br>
+                                        <!-- Gender Input -->
+                                        <div class="row">
+                                            <!-- City Input -->
+                                            <div class="col-md-2 mb-2">
+                                                <div class="form-outline">
+                                                    <div class="form-outline">
+                                                        <label for="gender" class="form-label">Gender</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Zip Code Input -->
+                                            <div class="col mb-2">
+                                                <div class="form-outline mb-3">
+                                                    <select id="gender" name="gender" class="btn btn-secondary dropdown-toggle" style="background-color: #44006b;width: 100%;">
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>        
+
+                                        <!-- Birthdate Input -->
+                                        <div class="form-outline">
+                                            <label for="usertype" class="form-label">Birthdate</label>
+                                        </div>
+                                        <div class="form-outline mb-3">
+                                            <input type="date" id="birthdate" name="birthdate" placeholder="mm/dd/yyyy" class="form-control" required>
+                                        </div>
+
+                                        <!-- Hobby input -->
+                                        <div class="form-outline mb-4">
+                                            <label for="usertype" class="form-label">Hobbies</label><br>
+                                            <div class="form-control mb-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Dancing" /> 
+                                                    <label class="form-check-label  ml-4" for="Dancing">Dancing</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Singing" /> 
+                                                    <label class="form-check-label  ml-4" for="Singing">Singing</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Drawing" /> 
+                                                    <label class="form-check-label  ml-4" for="Drawing">Drawing</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Cooking" /> 
+                                                    <label class="form-check-label  ml-4" for="Cooking">Cooking</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Gardening" /> 
+                                                    <label class="form-check-label  ml-4" for="Gardening">Gardening</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Gaming" /> 
+                                                    <label class="form-check-label  ml-4" for="Gaming">Gaming</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" type="checkbox" name='hobby[]' value="Movies" /> 
+                                                    <label class="form-check-label  ml-4" for="Movies">Movies</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input  ml-2" id="hobby" name="hobby[]" type="checkbox" value="Others" /> 
+                                                    <label class="form-check-label  ml-4" for="Others">Others</label>
+                                                    <!-- <input type="text" class="form-control" id="hobby" name='hobby[]' placeholder="Specify"> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Civil Status input -->
+                                        <div class="row">
+                                            <div class="col-md-3 mb-2">
+                                                <div class="form-outline">
+                                                    <div class="form-outline">
+                                                        <label for="civilStatus" class="form-label">Civil Status</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col mb-2">
+                                                <div class="form-outline mb-3">
+                                                    <select id="civilStatus" name="civilStatus" class="btn btn-secondary dropdown-toggle" style="background-color: #44006b;width: 100%;">
+                                                        <option value="Single">Single</option>
+                                                        <option value="Married">Married</option>
+                                                        <option value="Divorced">Divorced</option>
+                                                        <option value="Widowed">Widowed</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Alert -->
+                                        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+                                        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+                                            
+                                        <!-- Submit button -->
+                                        <center>
+                                            <input type="submit" class="btn btn-primary btn-block mb-4"style="width: 100%;background-color: #44006b" value="Submit">                                            
+                                        </center>
+                                                 
+                                    <!-- IF ELSE CONDITION -->
+                                    <%}else { %>
+                                                        
+                                        <center>
+                                        <button class="btn btn-primary"
+                                            style="background-color: #ad1fff;width: 40%; margin-top: 5%;"><a
+                                            href="/login";
+                                            style="color: white; text-decoration: none;">Login</a></button>
+                                        <button class="btn btn-primary"
+                                            style="background-color: #ad1fff;width: 40%; margin-top: 5%;"><a
+                                            href="/register"
+                                            style="color: white; text-decoration: none;">Register</a></button>
+                                        </center>
+
+                                    <!-- IF ELSE END -->
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%if(status=="loggedin" ){%>
+                </form>
+                <%}%>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+    <script src="js/index.js"></script>
+    
+    <!--API -->
+    <script>
+        $(document).ready(function() {
+        //-------------------------------SELECT CASCADING-------------------------//
+        var selectedCountry = (selectedRegion = selectedCity = "");
+        // This is a demo API key for testing purposes. You should rather request your API key (free) from http://battuta.medunes.net/
+        var BATTUTA_KEY = "00000000000000000000000000000000";
+        // Populate country select box from battuta API
+        url =
+            "https://battuta.medunes.net/api/country/all/?key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+
+        // EXTRACT JSON DATA.
+        $.getJSON(url, function(data) {
+            console.log(data);
+            $.each(data, function(index, value) {
+            // APPEND OR INSERT DATA TO SELECT ELEMENT.
+            $("#country").append(
+                '<option value="' + value.code + '">' + value.name + "</option>"
+            );
+            });
+        });
+        // Country selected --> update region list .
+        $("#country").change(function() {
+            selectedCountry = this.options[this.selectedIndex].text;
+            countryCode = $("#country").val();
+            // Populate country select box from battuta API
+            url =
+            "https://battuta.medunes.net/api/region/" +
+            countryCode +
+            "/all/?key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+            $.getJSON(url, function(data) {
+            $("#stateId option").remove();
+            $('#stateId').append('<option selected disabled value="">Select Region</option>');
+            $.each(data, function(index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                $("#stateId").append(
+                '<option value="' + value.region + '">' + value.region + "</option>"
+                );
+            });
+            });
+        });
+        // Region selected --> updated city list
+        $("#stateId").on("change", function() {
+            selectedRegion = this.options[this.selectedIndex].text;
+            // Populate country select box from battuta API
+            countryCode = $("#country").val();
+            region = $("#stateId").val();
+            url =
+            "https://battuta.medunes.net/api/city/" +
+            countryCode +
+            "/search/?region=" +
+            region +
+            "&key=" +
+            BATTUTA_KEY +
+            "&callback=?";
+            $.getJSON(url, function(data) {
+            console.log(data);
+            $("#city option").remove();
+            $('#city').append('<option selected disabled value="">Select City</option>');
+            $.each(data, function(index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                $("#city").append(
+                '<option value="' + value.city + '">' + value.city + "</option>"
+                );
+            });
+            });
+        });
+        // city selected --> update location string
+        $("#city").on("change", function() {
+            selectedCity = this.options[this.selectedIndex].text;
+            $("#location").html(
+            "Locatation: Country: " +
+                selectedCountry +
+                ", Region: " +
+                selectedRegion +
+                ", City: " +
+                selectedCity
+            );
+        });
+        });
+    </script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script> -->
+</body>
+</html>
